@@ -3,6 +3,12 @@
     box-sizing: border-box;
   }
   
+  main {
+    flex-grow: 1;
+  }
+  html, body {
+    height: 100%
+  }
   /* Właściwości dla body */
   body {
     height: 100vh;
