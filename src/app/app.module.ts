@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { StudentsComponent } from './students/students.component';
 import { StudentEditComponent } from './student-edit/student-edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { StudentNewComponent } from './student-new/student-new.component';
+import { StudentSearchComponent } from './student-search/student-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentsComponent,
     StudentEditComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    StudentNewComponent,
+    StudentSearchComponent
   ],
   imports: [
     BrowserModule,

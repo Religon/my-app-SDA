@@ -1,36 +1,20 @@
 <section>
-
-
-  <table>
-    <div class="new-student">
-      <tr>
-        <th colspan="3">Dodaj nowego studenta</th>
-      </tr>
-      <tr>
-        <td><label for="name">Imię i nazwisko:</label>
-          <input type="text" id="name" #name></td>
-
-        <td><label for="email">Adres e-mail:</label>
-          <input type="email" id="email" #email></td>
-
-        <td><button class="button button-blue"
-            (click)="add(name.value, email.value); name.value=''; email.value=''">Dodaj</button></td>
-      </tr>
-    </div>
-  </table>
+  <app-student-search></app-student-search>
   <table>
     <thead>
       <tr>
         <th>#</th>
         <th>Imię i nazwisko</th>
+        <th>Nazwa użytkownika</th>
         <th>Adres e-mail</th>
-        <th>Akcje</th>
+        <th style="width: 220px;">Akcje</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let student of students">
         <td>{{student.id}}</td>
         <td>{{student.name}}</td>
+        <td>{{student.username}}</td>
         <td>
           <a href="mailto:{{student.email}}">{{student.email}}</a>
         </td>
@@ -41,5 +25,7 @@
       </tr>
     </tbody>
   </table>
+
+  <app-student-new [students]="students"></app-student-new>
 
 </section>

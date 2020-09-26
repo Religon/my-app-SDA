@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Student } from './student';
 
 @Injectable({
@@ -35,5 +35,15 @@ export class StudentService {
   deleteStudent(student: Student): Observable<Student> {
     const url = `${this.studentsUrl}/${student.id}`;
     return this.http.delete<Student>(url, this.httpOptions);
+  }
+
+  searchStudents(term: string): Observable<Student[]> {
+    // Jeśli brak frazy, zwróć pustą tablicę
+    // "of" - tworzy obserwowalny strumień
+    if (!term.trim()) {
+      return of([]);
+    }
+
+    return this.http.get<Student[]>(`${this.studentsUrl}?name_like=${term}`);
   }
 }
